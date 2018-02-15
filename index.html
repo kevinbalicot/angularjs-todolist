@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My App</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <section ng-app="myApp" ng-controller="mainController as main">
+          <create-user-component ng-if="!main.UsersRepository.getUser()" create-new-user="main.onCreateNewUser(name)"></create-user-component>
+          <create-todo-component ng-if="main.UsersRepository.getUser()" create-new-todo="main.onCreateNewTodo(title)"></create-todo-component>
+          <list-todo-component todos="main.todos"></list-todo-component>
+        </section>
+
+        <script src="src/controllers/main-controller.js" charset="utf-8"></script>
+        <script src="src/services/todo-repository.js" charset="utf-8"></script>
+        <script src="src/components/create-user-component.js" charset="utf-8"></script>
+        <script src="app.js" charset="utf-8"></script>
+    </body>
+</html>
